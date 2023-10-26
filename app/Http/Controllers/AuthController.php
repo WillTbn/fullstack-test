@@ -47,4 +47,11 @@ class AuthController extends Controller
         ]], 200);
 
     }
+
+    public function logout()
+    {
+        auth()->user()->currentAccessToken()->delete();
+        return response()->json([], 204);
+    }
+
 }

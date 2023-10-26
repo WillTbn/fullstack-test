@@ -38,3 +38,10 @@ composer install
 ```
 php artisan make:migrate --seed
 ```
+
+
+## Task's
+
+ 1. Implementar rotina de Login
+    - Ao registra um novo user(premisionario) dispara e-mail com a primeira senha de acesso do mesmo.
+ 2. 

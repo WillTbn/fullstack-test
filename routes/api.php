@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LocalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,14 @@ Route::middleware(['auth:sanctum'])->group(function(){
        Route::put('/', [UserController::class, 'update'])->name('update');
        Route::get('/{user}', [UserController::class, 'getOne'])->name('get');
        Route::delete('/{user}', [UserController::class, 'deleteForce'])->name('delete');
+    });
+
+    Route::prefix('local')->name('local.')->group(function (){
+        Route::get('/', [LocalController::class, 'index'])->name('index');
+        Route::post('/', [LocalController::class, 'create'])->name('create');
+        Route::put('/', [LocalController::class, 'update'])->name('update');
+        Route::get('/{local}', [LocalController::class, 'getOne'])->name('get');
+        Route::delete('/{local}', [LocalController::class, 'deleteForce'])->name('delete');
     });
 
 });

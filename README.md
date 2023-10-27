@@ -42,6 +42,13 @@ php artisan make:migrate --seed
 
 ## Task's
 
- 1. Implementar rotina de Login
-    - Ao registra um novo user(premisionario) dispara e-mail com a primeira senha de acesso do mesmo.
- 2. 
+ * [x] Implementar rotina de Login
+    > Ao registra um novo user(premisionario) dispara e-mail com a primeira senha de acesso do mesmo.
+
+ * [x] Implementar rotina para que os novos permissionários possam logar no sistema.
+
+ * [x] Implementar CRUD dos permissionários(Users) para serem consumido via API.
+
+ * [x] Implementar CRUD de Locais para serem consumidos via API.
+
+ * [x] Implementar CRUD de permissionários para serem consumidos via API.

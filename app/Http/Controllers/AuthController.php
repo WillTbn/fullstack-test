@@ -6,6 +6,7 @@ use App\Http\Requests\AuthRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Services\UserServices;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -17,7 +18,15 @@ class AuthController extends Controller
     {
         $this->userServices = $userServices;
     }
+    public function validateToken()
+    {
+        $user = Auth::guard('sanctum')->user();
 
+        return response()->json([
+            'message' => 'Usuário Logado!',
+            'user' => $user,
+        ], 200);
+    }
 
     public function login (AuthRequest $request)
     {
@@ -29,9 +38,14 @@ class AuthController extends Controller
         // config(['auth.guards.api.provider' => 'api']);
         // $token = Auth::guard('api')->user()->createToken('fs', ['api'] )->accessToken;
         $token = auth()->user()->createToken('fs_auth');
-
-        return response()->json(['data' => [
+        return response()->json([
+            'message' => 'Login efetuado!',
+            'user' => [...auth()->user()->only('email','name', 'role_id')],
+            'token' => $token->plainTextToken
+        ], 200);
+        return response()->json(['response' => [
             'token' => $token->plainTextToken,
+            // 'data' => [...auth()->user()->only('email','name', 'role_id')]
         ]], 200);
 
     }

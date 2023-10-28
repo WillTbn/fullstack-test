@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::prefix('auth')->name('auth.')->group(function(){
         Route::post('/register', [AuthController::class, 'register'])->name('register');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+        Route::post('/validate', [AuthController::class, 'validateToken'])->name('validate');
     });
 
     Route::prefix('user')->name('user.')->group(function(){

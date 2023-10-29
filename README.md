@@ -39,7 +39,12 @@ composer install
 php artisan make:migrate --seed
 ```
 
-
+Tem um usuário inicial de teste no .env
+```
+# usuario inicial
+INITIAL_USER_EMAIL=jlbnunes@live.com
+INITIAL_USER_PASSWORD=123456
+```
 ## Task's
 
  * [x] Implementar rotina de Login
